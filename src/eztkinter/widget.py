@@ -72,10 +72,10 @@ class MyWidget(Frame):
         '''
         self.add_title()
         for wname in self.widgets.keys():
-            wdict = self.widgets[wname]
-            widget = wdict["widget"]
+            wdict = self.widgets[wname]            
             grid_kwargs = wdict["grid_kwargs"]
             pos = wdict["position"]
+            widget = wdict["widget"]
             widget.grid(row=pos[0], column=pos[1], rowspan=pos[2], columnspan=pos[3], **grid_kwargs)
 
 

@@ -17,8 +17,7 @@ class TestGUI(unittest.TestCase):
         self.root.title("Test GUI")
         self.root.geometry("800x600")
         textfield = MyTxtfield(self.root, title="Test Text Field", textfield_config={"width": 50, "padx":10, "pady":10})
-        textfield.build()
-        textfield.grid(row=0, column=0)
+        textfield.grid(row=0, column=0, sticky="nsew")
 
     
     def test_app(self):
