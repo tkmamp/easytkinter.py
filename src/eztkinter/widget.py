@@ -1,5 +1,4 @@
 from tkinter import *
-from tkinter import Misc
 from tkinter.ttk import *
 
 
@@ -21,7 +20,7 @@ class MyWidget(Frame):
         '''
         Sets up the widget.
         '''
-        print(f"setUP: not implemented for {self.__class__}!")
+        print(f"setUp: not implemented for {self.__class__}!")
         pass
     
 
@@ -106,3 +105,4 @@ class MyTxtfield(MyWidget):
         '''
         self.txtfield = Text(self, **self.textfield_config)
         self.add_widget(self.txtfield, "txtfield", row=0, column=0, rowspan=1, columnspan=1, sticky="nesw")
+        self.build()
