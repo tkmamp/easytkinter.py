@@ -3,6 +3,10 @@ from tkinter import *
 from tkinter.ttk import *
 
 from src.eztkinter.widget import *
+from src.eztkinter.window import *
+
+
+
 
 
 class TestGUI(unittest.TestCase):
@@ -13,15 +17,16 @@ class TestGUI(unittest.TestCase):
 
 
     def setup_gui(self):
-        self.root = Tk()
-        self.root.title("Test GUI")
-        self.root.geometry("800x600")
-        textfield = MyTxtfield(self.root, title="Test Text Field", textfield_config={"width": 50, "padx":10, "pady":10})
-        textfield.grid(row=0, column=0, sticky="nsew")
-
-    
+        self.window = MyWindow('Test GUI')
+        textfield = MyTxtfield(self.window.frame, textfield_config={"padx":10, "pady":10})    
+        textfield.add_title('Test Textfield', sticky='nesw')
+        textfield.add_button(text='clear', command=textfield.clear, row=2, sticky='ne') 
+        textfield.build()
+        self.window.add_widget(textfield, 'textfield', row_weight=1, col_weight=1)
+        self.window.build()
+        
     def test_app(self):
-        self.root.mainloop()
+        self.window.mainloop()
 
 
 
